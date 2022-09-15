@@ -24,13 +24,13 @@ public class NewsController {
         return newsService.save(uri, title, content, author);
     }
 
-    @GetMapping("/get")
-    private News get(@RequestParam("news_id") Long id) {
+    @GetMapping("/get/{news_id}")
+    private News get(@PathVariable("news_id") Long id) {
         return newsService.get(id);
     }
 
-    @PutMapping("/update")
-    private ResponseUpdate update(@RequestParam("id") Long id, @RequestParam("status") StatusNews status) {
+    @PutMapping("/update/{id}")
+    private ResponseUpdate update(@PathVariable("id") Long id, @RequestParam("status") StatusNews status) {
         return newsService.update(id, status);
     }
 
